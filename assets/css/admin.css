@@ -1,0 +1,208 @@
+/* DataUno Admin Preview */
+.admin-hero {
+  position: relative;
+  overflow: hidden;
+  color: #eef8ff;
+  background:
+    linear-gradient(90deg, rgba(2,8,20,.96), rgba(7,27,58,.78)),
+    radial-gradient(circle at 76% 20%, rgba(0,212,255,.18), transparent 28%),
+    url('../img/placa-tech.jpg') center/cover;
+  border-bottom: 1px solid rgba(0,212,255,.12);
+}
+
+.admin-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.02) 1px, transparent 1px);
+  background-size: 20px 20px;
+  opacity: .4;
+  pointer-events: none;
+}
+
+.admin-hero-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(340px, .75fr);
+  gap: 44px;
+  align-items: center;
+  min-height: 640px;
+  padding: 80px 0;
+}
+
+.admin-copy h1 {
+  max-width: 820px;
+  margin: 16px 0 22px;
+  font-size: clamp(2.6rem, 6vw, 5.2rem);
+  line-height: .95;
+  letter-spacing: -.065em;
+}
+
+.admin-copy p {
+  max-width: 680px;
+  color: rgba(235,246,255,.78);
+  font-size: 1.08rem;
+}
+
+.admin-login-card,
+.admin-module,
+.admin-roadmap-card {
+  border: 1px solid rgba(0,212,255,.16);
+  background: linear-gradient(180deg, rgba(16,28,44,.82), rgba(6,18,36,.68));
+  box-shadow: 0 28px 70px rgba(0,0,0,.34), inset 0 1px 0 rgba(255,255,255,.06);
+  backdrop-filter: blur(16px);
+}
+
+.admin-login-card {
+  display: grid;
+  gap: 16px;
+  padding: 28px;
+  border-radius: 30px;
+}
+
+.admin-card-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 8px;
+}
+
+.admin-card-head > span {
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  background: rgba(0,212,255,.12);
+}
+
+.admin-card-head strong,
+.admin-login-card label,
+.admin-module h3,
+.admin-roadmap-card h2 {
+  color: #fff;
+}
+
+.admin-card-head small,
+.admin-login-card p,
+.admin-module p,
+.admin-module small,
+.admin-roadmap-card p,
+.admin-roadmap-card li {
+  color: rgba(235,246,255,.7);
+}
+
+.admin-login-card label {
+  display: grid;
+  gap: 8px;
+  font-size: .82rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+
+.admin-login-card input {
+  min-height: 48px;
+  border-radius: 14px;
+  border: 1px solid rgba(0,212,255,.14);
+  background: rgba(2,8,20,.7);
+  color: rgba(255,255,255,.8);
+  padding: 0 14px;
+}
+
+.admin-login-card .btn:disabled {
+  opacity: .72;
+  cursor: not-allowed;
+}
+
+.admin-section {
+  padding: 90px 0;
+  color: #eef8ff;
+  background:
+    radial-gradient(circle at 10% 20%, rgba(0,212,255,.08), transparent 28rem),
+    #020814;
+}
+
+.admin-module-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.admin-module {
+  padding: 24px;
+  border-radius: 24px;
+  transition: transform .22s ease, border-color .22s ease;
+}
+
+.admin-module:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0,212,255,.34);
+}
+
+.admin-module > span {
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border-radius: 16px;
+  margin-bottom: 18px;
+  background: rgba(0,212,255,.12);
+}
+
+.admin-module h3 {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.admin-module small {
+  display: block;
+  margin-top: 14px;
+  font-weight: 800;
+}
+
+.admin-roadmap {
+  padding-top: 0;
+}
+
+.admin-roadmap-card {
+  display: grid;
+  grid-template-columns: 1fr .8fr;
+  gap: 36px;
+  align-items: center;
+  padding: 34px;
+  border-radius: 30px;
+}
+
+.admin-roadmap-card h2 {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1;
+  letter-spacing: -.04em;
+  margin: 12px 0;
+}
+
+.admin-roadmap-card ol {
+  display: grid;
+  gap: 12px;
+  padding-left: 22px;
+}
+
+@media (max-width: 980px) {
+  .admin-hero-grid,
+  .admin-roadmap-card {
+    grid-template-columns: 1fr;
+  }
+  .admin-module-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .admin-module-grid {
+    grid-template-columns: 1fr;
+  }
+  .admin-hero-grid {
+    padding: 54px 0;
+  }
+}

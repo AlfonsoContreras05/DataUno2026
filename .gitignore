@@ -1,0 +1,6 @@
+.env
+includes/config.php
+uploads/tmp/
+*.zip
+.DS_Store
+Thumbs.db

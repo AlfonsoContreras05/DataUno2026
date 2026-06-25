@@ -1,0 +1,12 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/USUARIO_CPANEL/public_html/
+    - /bin/cp -R index.php $DEPLOYPATH
+    - /bin/cp -R catalogo.php $DEPLOYPATH
+    - /bin/cp -R desarrollo.php $DEPLOYPATH
+    - /bin/cp -R assets $DEPLOYPATH
+    - /bin/cp -R admin $DEPLOYPATH
+    - /bin/cp -R includes $DEPLOYPATH
+    - /bin/cp -R database $DEPLOYPATH
+    - /bin/mkdir -p $DEPLOYPATH/uploads/servicios
