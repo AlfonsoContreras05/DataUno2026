@@ -127,7 +127,6 @@ $serviciosDestacados = array_filter($serviciosTecnicos, fn($servicio) => $servic
                     <h3><?= htmlspecialchars($servicio['titulo']); ?></h3>
                     <p><?= htmlspecialchars($servicio['descripcion']); ?></p>
                     <div class="card-footer">
-                        <strong><?= htmlspecialchars($servicio['precio']); ?></strong>
                         <a href="<?= $contacto['whatsapp_link']; ?>?text=Hola%20DataUno,%20quiero%20cotizar:%20<?= urlencode($servicio['titulo']); ?>" target="_blank" rel="noopener">Cotizar</a>
                     </div>
                 </article>
