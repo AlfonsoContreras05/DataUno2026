@@ -10,4 +10,6 @@ deployment:
     - /bin/cp catalogo.php $DEPLOYPATH
     - /bin/cp producto.php $DEPLOYPATH
     - /bin/cp desarrollo.php $DEPLOYPATH
+    - /bin/cp robots.txt $DEPLOYPATH
+    - /bin/cp sitemap.xml $DEPLOYPATH
     - /bin/cp .htaccess $DEPLOYPATH
