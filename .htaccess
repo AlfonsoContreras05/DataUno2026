@@ -2,6 +2,13 @@ DirectoryIndex index.php index.html
 
 <IfModule mod_rewrite.c>
     RewriteEngine On
+
+    # Canonical oficial: https://www.datauno.cl/
+    # Esto evita señales duplicadas entre datauno.cl y www.datauno.cl.
+    RewriteCond %{HTTPS} !=on [OR]
+    RewriteCond %{HTTP_HOST} !^www\.datauno\.cl$ [NC]
+    RewriteRule ^(.*)$ https://www.datauno.cl/$1 [R=301,L]
+
     RewriteRule ^$ index.php [L]
 </IfModule>
 
