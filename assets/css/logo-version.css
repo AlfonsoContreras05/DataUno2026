@@ -1,7 +1,7 @@
-/* Forzamos el logo DataUno nuevo en todos los espacios visuales. */
+/* Forzamos el logo DataUno blanco en todos los espacios visuales. */
 .brand-full img,
 .identity-logo {
-  content: url('../img/version_2.png') !important;
+  content: url('../img/datauno-logo-white.svg') !important;
 }
 
 .brand-full img {
@@ -17,12 +17,12 @@
 
 .footer-brand,
 .footer-brand-clean {
-  background-image: url('../img/version_2.png') !important;
+  background-image: url('../img/datauno-logo-white.svg') !important;
   background-size: contain !important;
   background-repeat: no-repeat !important;
   background-position: left center !important;
 }
 
 .legacy-code-card::before {
-  background-image: url('../img/version_2.png') !important;
+  background-image: url('../img/datauno-logo-white.svg') !important;
 }
