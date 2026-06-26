@@ -2,7 +2,7 @@
 $page_title = 'Panel DataUno';
 $active_page = 'admin';
 $extra_css = ['assets/css/admin.css'];
-require_once __DIR__ . '/../includes/header.php';
+
 require_once __DIR__ . '/../includes/auth.php';
 require_once __DIR__ . '/../includes/db.php';
 
@@ -22,9 +22,13 @@ if ($pdo) {
         $stats['categorias'] = (int) $pdo->query('SELECT COUNT(*) FROM categorias')->fetchColumn();
         $stats['destacados'] = (int) $pdo->query('SELECT COUNT(*) FROM productos WHERE destacado = 1')->fetchColumn();
     } catch (Throwable $exception) {
-        $stats = array_map(fn() => 0, $stats);
+        $stats = array_map(function () { return 0; }, $stats);
     }
 }
+
+$adminUser = datauno_admin_user();
+
+require_once __DIR__ . '/../includes/header.php';
 ?>
 
 <section class="admin-hero admin-dashboard-hero">
@@ -35,7 +39,7 @@ if ($pdo) {
             <p>Gestiona productos, categorías, destacados y disponibilidad desde una base MySQL en cPanel.</p>
         </div>
         <div class="admin-user-box">
-            <strong><?= htmlspecialchars(datauno_admin_user()['nombre']); ?></strong>
+            <strong><?= htmlspecialchars($adminUser['nombre'] ?? 'Administrador'); ?></strong>
             <span>Sesión activa</span>
             <a href="logout.php">Cerrar sesión</a>
         </div>
