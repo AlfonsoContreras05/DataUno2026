@@ -1,7 +1,7 @@
-/* Logo unificado DataUno: todos los espacios usan la misma imagen del footer. */
+/* Logo final único DataUno. No usar version_2, logo-datauno ni datauno-brand como fuente activa. */
 .brand-full img,
 .identity-logo {
-  content: url('../img/datauno-brand.png?v=footer-brand-20260626') !important;
+  content: url('../img/datauno-logo-final.svg?v=final-logo-20260626') !important;
 }
 
 .brand-full img {
@@ -17,7 +17,7 @@
 
 .footer-brand,
 .footer-brand-clean {
-  background-image: url('../img/datauno-brand.png?v=footer-brand-20260626') !important;
+  background-image: url('../img/datauno-logo-final.svg?v=final-logo-20260626') !important;
   background-size: contain !important;
   background-repeat: no-repeat !important;
   background-position: left center !important;
