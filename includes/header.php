@@ -73,6 +73,7 @@ $brand_logo = 'assets/img/version_2.png';
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="<?= $base_path; ?>assets/css/styles.css">
+    <link rel="stylesheet" href="<?= $base_path; ?>assets/css/logo-version.css">
     <?php foreach ($extra_css as $css_file): ?>
         <link rel="stylesheet" href="<?= $base_path . htmlspecialchars($css_file); ?>">
     <?php endforeach; ?>
