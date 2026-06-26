@@ -7,6 +7,7 @@ $active_page = $active_page ?? 'inicio';
 $script_name = $_SERVER['SCRIPT_NAME'] ?? '';
 $base_path = strpos($script_name, '/admin/') !== false ? '../' : '';
 $extra_css = $extra_css ?? [];
+$logo_version = 'footer-brand-20260626';
 $canonicalPath = $script_name ? basename($script_name) : 'index.php';
 if ($canonicalPath === 'index.php') {
     $canonicalUrl = 'https://www.datauno.cl/';
@@ -16,7 +17,7 @@ if ($canonicalPath === 'index.php') {
     $canonicalUrl = 'https://www.datauno.cl/' . $canonicalPath;
 }
 $seo_title = trim($page_title . ' | DataUno');
-$brand_logo = 'assets/img/version_2.png';
+$brand_logo = 'assets/img/datauno-brand.png?v=' . $logo_version;
 ?>
 <!DOCTYPE html>
 <html lang="es-CL">
@@ -53,7 +54,7 @@ $brand_logo = 'assets/img/version_2.png';
       "name": "DataUno",
       "alternateName": "DataUno Soluciones Informáticas",
       "url": "https://www.datauno.cl/",
-      "image": "https://www.datauno.cl/assets/img/version_2.png",
+      "image": "https://www.datauno.cl/assets/img/datauno-brand.png",
       "description": "Servicio técnico de computadores, notebooks, mantención, reparación, upgrades y soluciones digitales en Victoria, Araucanía.",
       "telephone": "+56994392133",
       "email": "victordiaz.pc@gmail.com",
@@ -73,7 +74,7 @@ $brand_logo = 'assets/img/version_2.png';
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="<?= $base_path; ?>assets/css/styles.css">
-    <link rel="stylesheet" href="<?= $base_path; ?>assets/css/logo-version.css">
+    <link rel="stylesheet" href="<?= $base_path; ?>assets/css/logo-version.css?v=<?= $logo_version; ?>">
     <?php foreach ($extra_css as $css_file): ?>
         <link rel="stylesheet" href="<?= $base_path . htmlspecialchars($css_file); ?>">
     <?php endforeach; ?>
