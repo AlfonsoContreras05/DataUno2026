@@ -1,7 +1,7 @@
-/* Ajuste temporal para probar el nuevo logo DataUno sin tocar aún todos los PHP. */
+/* Forzamos el logo DataUno nuevo en todos los espacios visuales. */
 .brand-full img,
 .identity-logo {
-  content: url('../img/version_2.png');
+  content: url('../img/version_2.png') !important;
 }
 
 .brand-full img {
