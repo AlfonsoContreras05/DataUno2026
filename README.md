@@ -1,102 +1,80 @@
-# DataUno Pro Max - V1 Visual
+# DataUno ProMax V11
 
-Primera versión de renovación visual para DataUno.
+Versión con landing, catálogo de productos, ficha individual, carrito por WhatsApp y panel admin conectado a MySQL/cPanel.
 
-## Qué incluye
+## Producción
 
-- Landing principal enfocada en servicio técnico de computadores.
-- Catálogo visual con filtros en JavaScript.
-- Vista separada para desarrollo de software.
-- Ruta admin reservada para fase 2.
-- Esquema SQL inicial para futura base de datos.
-- Archivo `.cpanel.yml` inicial para despliegue con Git en cPanel.
+- Dominio: `datauno.cl`
+- Deploy por cPanel Git Version Control
+- Ruta pública: `/home/datauno1/public_html/`
+- Config privada esperada: `/home/datauno1/datauno_private/config.php`
 
-## Datos oficiales usados
+## Config privada
 
-- WhatsApp: +56 9 9439 2133
-- Correo: victordiaz.pc@gmail.com
-- Dirección: Chorrillos 1012, Victoria, Araucanía, Chile
+Crear fuera de `public_html`:
 
-## Cómo probar localmente
+```php
+<?php
+return [
+    'db_host' => 'localhost',
+    'db_name' => 'datauno1_datauno_db',
+    'db_user' => 'datauno1_datauno_admin',
+    'db_pass' => 'CLAVE_PRIVADA',
+];
+```
 
-Con PHP instalado, abrir terminal en la carpeta del proyecto y ejecutar:
+Este archivo no debe subirse a GitHub.
+
+## Importar base de datos
+
+En phpMyAdmin seleccionar `datauno1_datauno_db` e importar:
+
+```text
+database/schema.sql
+```
+
+## Admin
+
+Ruta:
+
+```text
+/admin/login.php
+```
+
+Usuario inicial:
+
+```text
+admin
+```
+
+La contraseña inicial corresponde a la clave temporal acordada para instalación. Cambiarla después de validar el panel.
+
+## Flujo de deploy
 
 ```bash
-php -S localhost:8000
+git add .
+git commit -m "Mensaje del cambio"
+git push
 ```
 
-Luego abrir:
+Luego en cPanel:
 
 ```text
-http://localhost:8000
+Git Version Control → DataUno2026 → Pull or Deploy → Update from Remote → Deploy HEAD Commit
 ```
 
-## Antes de subir a cPanel
-
-Editar `.cpanel.yml` y cambiar:
+## Archivos clave V11
 
 ```text
-/home/USUARIO_CPANEL/public_html/
+includes/db.php
+includes/auth.php
+includes/product-repository.php
+admin/login.php
+admin/logout.php
+admin/index.php
+admin/productos.php
+admin/producto-form.php
+admin/categorias.php
+database/schema.sql
+.htaccess
 ```
-
-por la ruta real del hosting.
-
-## Nota
-
-Esta versión todavía no conecta el catálogo a MySQL. El catálogo carga desde `includes/data.php` para revisar diseño y contenido primero.
-
-## V2 - Ajuste de identidad DataUno
-
-Esta iteración recupera el protagonismo visual del logo original `DataUno Soluciones Informáticas` y transforma el panel lateral del hero en una tarjeta de marca inspirada en la versión anterior:
-
-- Logo completo en navegación y footer.
-- Tarjeta lateral con concepto `Diagnóstico + Solución + Evolución`.
-- Servicios destacados dentro del panel visual.
-- Mantiene estructura moderna de la V1.
-
-## V3 - Identidad DataUno reforzada
-
-Esta iteración recupera el ADN visual del sitio antiguo:
-
-- Fondo tecnológico oscuro con imagen de placa y patrón animado.
-- Tarjetas tipo glass con borde azul/celeste.
-- Secciones oscuras continuas para evitar cortes blancos bruscos.
-- Hero con tarjeta DataUno protagonista.
-- Más presencia del logo `DataUno Soluciones Informáticas`.
-- Microanimaciones: scanline, grid animado, tarjetas con brillo y flotación suave.
-- Nueva estructura de inicio y desarrollo inspirada en la panorámica antigua.
-- Formulario de contacto visual conectado a FormSubmit.
-
-Archivos más modificados en V3:
-
-- `index.php`
-- `desarrollo.php`
-- `assets/css/styles.css`
-
-
-## V9 - Catálogo con detalle y admin estilizado
-
-Cambios principales:
-
-- `catalogo.php` ahora enlaza cada producto a una ficha individual.
-- Nuevo archivo `producto.php` para vista exclusiva de producto.
-- Vista de detalle con:
-  - imagen grande,
-  - botón agregar al carrito,
-  - cotización directa por WhatsApp,
-  - ficha técnica comercial,
-  - productos sugeridos.
-- Nuevo include `includes/cart-drawer.php` para reutilizar el carrito en catálogo y detalle.
-- Corrección de rutas en `includes/header.php` y `includes/footer.php` para que el admin cargue CSS/JS correctamente desde `/admin`.
-- Admin visual renovado con `assets/css/admin.css`.
-
-Archivos tocados:
-
-- `catalogo.php`
-- `producto.php`
-- `admin/index.php`
-- `includes/header.php`
-- `includes/footer.php`
-- `includes/cart-drawer.php`
-- `assets/css/styles.css`
-- `assets/css/admin.css`

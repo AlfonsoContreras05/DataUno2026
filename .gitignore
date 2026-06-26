@@ -1,5 +1,7 @@
 .env
 includes/config.php
+includes/config.local.php
+datauno_private/
 uploads/tmp/
 *.zip
 .DS_Store

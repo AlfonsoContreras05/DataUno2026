@@ -3,7 +3,9 @@ $page_title = 'Catálogo de productos';
 $active_page = 'catalogo';
 $extra_css = ['assets/css/catalogo.css'];
 require_once __DIR__ . '/includes/header.php';
-$categoriasProductos = array_values(array_unique(array_column($productosCatalogo, 'categoria')));
+require_once __DIR__ . '/includes/product-repository.php';
+$productosCatalogo = datauno_get_productos_catalogo();
+$categoriasProductos = datauno_get_categorias_productos();
 
 function productCardMeta(array $producto): array
 {

@@ -3,15 +3,11 @@ $page_title = 'Detalle de producto';
 $active_page = 'catalogo';
 $extra_css = ['assets/css/catalogo.css', 'assets/css/producto.css'];
 require_once __DIR__ . '/includes/header.php';
+require_once __DIR__ . '/includes/product-repository.php';
 
 $product_id = $_GET['id'] ?? '';
-$productoActual = null;
-foreach ($productosCatalogo as $producto) {
-    if ($producto['id'] === $product_id) {
-        $productoActual = $producto;
-        break;
-    }
-}
+$productoActual = datauno_get_producto($product_id);
+$productosCatalogo = datauno_get_productos_catalogo();
 
 if (!$productoActual) {
     http_response_code(404);
@@ -69,21 +65,7 @@ function productoMicroResumen(array $producto): array
 
 $bloquesDetalle = $productoActual ? detalleProductoPorCategoria($productoActual) : [];
 $microResumen = $productoActual ? productoMicroResumen($productoActual) : [];
-$productosSugeridos = [];
-if ($productoActual) {
-    foreach ($productosCatalogo as $producto) {
-        if ($producto['id'] !== $productoActual['id'] && $producto['categoria'] === $productoActual['categoria']) {
-            $productosSugeridos[] = $producto;
-        }
-    }
-    foreach ($productosCatalogo as $producto) {
-        if (count($productosSugeridos) >= 4) break;
-        if ($producto['id'] !== $productoActual['id'] && !in_array($producto, $productosSugeridos, true) && !empty($producto['destacado'])) {
-            $productosSugeridos[] = $producto;
-        }
-    }
-    $productosSugeridos = array_slice($productosSugeridos, 0, 4);
-}
+$productosSugeridos = $productoActual ? datauno_get_productos_sugeridos($productoActual, 4) : [];
 ?>
 
 <?php if (!$productoActual): ?>

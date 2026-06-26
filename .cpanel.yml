@@ -5,8 +5,9 @@ deployment:
     - /bin/cp -R assets $DEPLOYPATH
     - /bin/cp -R admin $DEPLOYPATH
     - /bin/cp -R includes $DEPLOYPATH
-    - /bin/cp -R uploads $DEPLOYPATH
+    - /bin/mkdir -p $DEPLOYPATH/uploads/productos
     - /bin/cp index.php $DEPLOYPATH
     - /bin/cp catalogo.php $DEPLOYPATH
     - /bin/cp producto.php $DEPLOYPATH
     - /bin/cp desarrollo.php $DEPLOYPATH
+    - /bin/cp .htaccess $DEPLOYPATH
