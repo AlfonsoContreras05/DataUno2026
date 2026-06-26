@@ -16,6 +16,7 @@ if ($canonicalPath === 'index.php') {
     $canonicalUrl = 'https://www.datauno.cl/' . $canonicalPath;
 }
 $seo_title = trim($page_title . ' | DataUno');
+$brand_logo = 'assets/img/version_2.png';
 ?>
 <!DOCTYPE html>
 <html lang="es-CL">
@@ -36,12 +37,12 @@ $seo_title = trim($page_title . ' | DataUno');
     <meta property="og:title" content="<?= htmlspecialchars($seo_title); ?>">
     <meta property="og:description" content="<?= htmlspecialchars($page_description); ?>">
     <meta property="og:url" content="<?= htmlspecialchars($canonicalUrl); ?>">
-    <meta property="og:image" content="https://www.datauno.cl/assets/img/datauno-brand.png">
+    <meta property="og:image" content="https://www.datauno.cl/<?= htmlspecialchars($brand_logo); ?>">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="<?= htmlspecialchars($seo_title); ?>">
     <meta name="twitter:description" content="<?= htmlspecialchars($page_description); ?>">
-    <meta name="twitter:image" content="https://www.datauno.cl/assets/img/datauno-brand.png">
+    <meta name="twitter:image" content="https://www.datauno.cl/<?= htmlspecialchars($brand_logo); ?>">
 
     <title><?= htmlspecialchars($seo_title); ?></title>
 
@@ -52,7 +53,7 @@ $seo_title = trim($page_title . ' | DataUno');
       "name": "DataUno",
       "alternateName": "DataUno Soluciones Informáticas",
       "url": "https://www.datauno.cl/",
-      "image": "https://www.datauno.cl/assets/img/datauno-brand.png",
+      "image": "https://www.datauno.cl/assets/img/version_2.png",
       "description": "Servicio técnico de computadores, notebooks, mantención, reparación, upgrades y soluciones digitales en Victoria, Araucanía.",
       "telephone": "+56994392133",
       "email": "victordiaz.pc@gmail.com",
@@ -80,7 +81,7 @@ $seo_title = trim($page_title . ' | DataUno');
 <header class="site-header" id="top">
     <nav class="navbar container" aria-label="Navegación principal">
         <a class="brand brand-full" href="<?= $base_path; ?>index.php" aria-label="Volver al inicio de DataUno">
-            <img src="<?= $base_path; ?>assets/img/datauno-brand.png" alt="DataUno Soluciones Informáticas" loading="lazy">
+            <img src="<?= $base_path . $brand_logo; ?>" alt="DataUno Soluciones Informáticas" loading="lazy">
             <span class="brand-subline">Servicio técnico & software</span>
         </a>
 
