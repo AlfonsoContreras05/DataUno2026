@@ -7,29 +7,34 @@ require_once __DIR__ . '/includes/product-repository.php';
 $productosCatalogo = datauno_get_productos_catalogo();
 $categoriasProductos = datauno_get_categorias_productos();
 
+function datauno_contains_text(string $haystack, string $needle): bool
+{
+    return strpos($haystack, $needle) !== false;
+}
+
 function productCardMeta(array $producto): array
 {
     $categoria = mb_strtolower($producto['categoria']);
 
-    if (str_contains($categoria, 'almacenamiento')) {
+    if (datauno_contains_text($categoria, 'almacenamiento')) {
         return ['Acelera arranque', 'Instalación disponible', 'Respaldo opcional'];
     }
-    if (str_contains($categoria, 'memorias')) {
+    if (datauno_contains_text($categoria, 'memorias')) {
         return ['Más multitarea', 'Compatibilidad previa', 'Rendimiento diario'];
     }
-    if (str_contains($categoria, 'repuestos')) {
+    if (datauno_contains_text($categoria, 'repuestos')) {
         return ['Según modelo', 'Revisión técnica', 'Cambio asistido'];
     }
-    if (str_contains($categoria, 'accesorios')) {
+    if (datauno_contains_text($categoria, 'accesorios')) {
         return ['Conexión correcta', 'Stock variable', 'Uso diario'];
     }
-    if (str_contains($categoria, 'mantención')) {
+    if (datauno_contains_text($categoria, 'mantención')) {
         return ['Control temperatura', 'Limpieza técnica', 'Vida útil'];
     }
-    if (str_contains($categoria, 'periféricos')) {
+    if (datauno_contains_text($categoria, 'periféricos')) {
         return ['Oficina / hogar', 'Reemplazo rápido', 'Cotización simple'];
     }
-    if (str_contains($categoria, 'combos')) {
+    if (datauno_contains_text($categoria, 'combos')) {
         return ['Diagnóstico primero', 'Upgrade completo', 'Mejor inversión'];
     }
 
