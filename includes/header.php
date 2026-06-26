@@ -16,7 +16,7 @@ if ($canonicalPath === 'index.php') {
     $canonicalUrl = 'https://www.datauno.cl/' . $canonicalPath;
 }
 $seo_title = trim($page_title . ' | DataUno');
-$brand_logo = 'assets/img/version_2.png';
+$brand_logo = 'assets/img/datauno-logo-white.svg';
 ?>
 <!DOCTYPE html>
 <html lang="es-CL">
@@ -53,7 +53,7 @@ $brand_logo = 'assets/img/version_2.png';
       "name": "DataUno",
       "alternateName": "DataUno Soluciones Informáticas",
       "url": "https://www.datauno.cl/",
-      "image": "https://www.datauno.cl/assets/img/version_2.png",
+      "image": "https://www.datauno.cl/assets/img/datauno-logo-white.svg",
       "description": "Servicio técnico de computadores, notebooks, mantención, reparación, upgrades y soluciones digitales en Victoria, Araucanía.",
       "telephone": "+56994392133",
       "email": "victordiaz.pc@gmail.com",
