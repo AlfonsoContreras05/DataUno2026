@@ -21,7 +21,7 @@ $serviciosTecnicos = [
         'categoria' => 'Sistema',
         'titulo' => 'Formateo e instalación',
         'descripcion' => 'Instalación de sistema operativo, drivers, programas esenciales, configuración inicial y equipo listo para trabajar.',
-        'precio' => 'Desde $25.000',
+        'precio' => 'Cotizar',
         'icono' => '💻',
         'destacado' => true,
     ],
