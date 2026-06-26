@@ -2,7 +2,7 @@
 $page_title = 'Ingreso admin';
 $active_page = 'admin';
 $extra_css = ['assets/css/admin.css'];
-require_once __DIR__ . '/../includes/header.php';
+
 require_once __DIR__ . '/../includes/auth.php';
 
 if (datauno_admin_logged_in()) {
@@ -20,8 +20,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    $error = 'Usuario o contraseña incorrectos, o la base de datos aún no está lista.';
+    $error = 'Usuario o contraseña incorrectos. Verifica usuario, clave y conexión a la base de datos.';
 }
+
+require_once __DIR__ . '/../includes/header.php';
 ?>
 
 <section class="admin-hero admin-login-page">
@@ -46,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <?php endif; ?>
 
             <label>Usuario
-                <input type="text" name="username" placeholder="admin" required autofocus>
+                <input type="text" name="username" placeholder="admin" required autofocus value="<?= htmlspecialchars($_POST['username'] ?? ''); ?>">
             </label>
             <label>Contraseña
                 <input type="password" name="password" placeholder="••••••••" required>
