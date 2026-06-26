@@ -1,12 +1,12 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/USUARIO_CPANEL/public_html/
-    - /bin/cp -R index.php $DEPLOYPATH
-    - /bin/cp -R catalogo.php $DEPLOYPATH
-    - /bin/cp -R desarrollo.php $DEPLOYPATH
+    - export DEPLOYPATH=/home/datauno1/public_html/
     - /bin/cp -R assets $DEPLOYPATH
     - /bin/cp -R admin $DEPLOYPATH
     - /bin/cp -R includes $DEPLOYPATH
-    - /bin/cp -R database $DEPLOYPATH
-    - /bin/mkdir -p $DEPLOYPATH/uploads/servicios
+    - /bin/cp -R uploads $DEPLOYPATH
+    - /bin/cp index.php $DEPLOYPATH
+    - /bin/cp catalogo.php $DEPLOYPATH
+    - /bin/cp producto.php $DEPLOYPATH
+    - /bin/cp desarrollo.php $DEPLOYPATH
