@@ -13,6 +13,11 @@ if (!$productoActual) {
     http_response_code(404);
 }
 
+function datauno_producto_contains_text(string $haystack, string $needle): bool
+{
+    return strpos($haystack, $needle) !== false;
+}
+
 function detalleProductoPorCategoria(array $producto): array
 {
     $categoria = mb_strtolower($producto['categoria']);
@@ -30,19 +35,19 @@ function detalleProductoPorCategoria(array $producto): array
         ],
     ];
 
-    if (str_contains($categoria, 'almacenamiento')) {
+    if (datauno_producto_contains_text($categoria, 'almacenamiento')) {
         $base['Qué mejora'] = ['Arranque más rápido del sistema.', 'Apertura más fluida de programas y archivos.', 'Puede combinarse con respaldo e instalación limpia.'];
         $base['Instalación DataUno'] = ['Validamos interfaz y formato.', 'Respaldamos información si corresponde.', 'Dejamos el equipo probado antes de entrega.'];
-    } elseif (str_contains($categoria, 'memorias')) {
+    } elseif (datauno_producto_contains_text($categoria, 'memorias')) {
         $base['Qué mejora'] = ['Más estabilidad con varias aplicaciones abiertas.', 'Mejor respuesta en navegación y programas de oficina.', 'Menos saturación cuando el equipo trabaja al límite.'];
         $base['Instalación DataUno'] = ['Validamos DDR, frecuencia y límite del equipo.', 'Revisamos ranuras disponibles.', 'Probamos estabilidad posterior al cambio.'];
-    } elseif (str_contains($categoria, 'repuestos')) {
+    } elseif (datauno_producto_contains_text($categoria, 'repuestos')) {
         $base['Qué mejora'] = ['Recupera piezas dañadas o agotadas.', 'Evita cambiar el equipo completo cuando aún puede repararse.', 'Permite extender la vida útil del notebook o PC.'];
         $base['Instalación DataUno'] = ['Se cotiza según modelo exacto.', 'Revisamos origen de la falla antes de cambiar.', 'Instalación disponible según compatibilidad.'];
-    } elseif (str_contains($categoria, 'accesorios') || str_contains($categoria, 'periféricos')) {
+    } elseif (datauno_producto_contains_text($categoria, 'accesorios') || datauno_producto_contains_text($categoria, 'periféricos')) {
         $base['Qué mejora'] = ['Mejor conectividad y uso diario.', 'Reemplazo rápido de elementos esenciales.', 'Opciones según presupuesto y necesidad real.'];
         $base['Instalación DataUno'] = ['Validamos conectores, voltaje o compatibilidad.', 'Recomendamos alternativas cuando conviene.', 'Cotización sujeta a disponibilidad.'];
-    } elseif (str_contains($categoria, 'mantención')) {
+    } elseif (datauno_producto_contains_text($categoria, 'mantención')) {
         $base['Qué mejora'] = ['Temperaturas más controladas.', 'Menos ruido y mejor ventilación.', 'Prevención de fallas por sobrecalentamiento.'];
         $base['Instalación DataUno'] = ['Limpieza técnica del equipo.', 'Cambio de pasta térmica si corresponde.', 'Revisión general posterior.'];
     } else {
@@ -56,10 +61,10 @@ function detalleProductoPorCategoria(array $producto): array
 function productoMicroResumen(array $producto): array
 {
     $categoria = mb_strtolower($producto['categoria']);
-    if (str_contains($categoria, 'almacenamiento')) return ['Velocidad', 'Respaldo opcional', 'Instalación'];
-    if (str_contains($categoria, 'memorias')) return ['Multitarea', 'Compatibilidad', 'Estabilidad'];
-    if (str_contains($categoria, 'repuestos')) return ['Modelo exacto', 'Cambio técnico', 'Diagnóstico'];
-    if (str_contains($categoria, 'mantención')) return ['Temperatura', 'Limpieza', 'Prevención'];
+    if (datauno_producto_contains_text($categoria, 'almacenamiento')) return ['Velocidad', 'Respaldo opcional', 'Instalación'];
+    if (datauno_producto_contains_text($categoria, 'memorias')) return ['Multitarea', 'Compatibilidad', 'Estabilidad'];
+    if (datauno_producto_contains_text($categoria, 'repuestos')) return ['Modelo exacto', 'Cambio técnico', 'Diagnóstico'];
+    if (datauno_producto_contains_text($categoria, 'mantención')) return ['Temperatura', 'Limpieza', 'Prevención'];
     return ['Cotización', 'Validación', 'Soporte'];
 }
 
