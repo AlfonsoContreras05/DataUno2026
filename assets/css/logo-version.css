@@ -1,0 +1,16 @@
+/* Ajuste temporal para probar el nuevo logo DataUno sin tocar aún todos los PHP. */
+.brand-full img,
+.identity-logo {
+  content: url('../img/version_2.png');
+}
+
+.brand-full img {
+  max-height: 78px;
+  object-fit: contain;
+}
+
+.identity-logo {
+  width: min(360px, 82%);
+  height: auto;
+  object-fit: contain;
+}
