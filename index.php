@@ -33,7 +33,7 @@ $serviciosDestacados = array_filter($serviciosTecnicos, fn($servicio) => $servic
                 <div class="identity-noise"></div>
                 <div class="identity-ring ring-one"></div>
                 <div class="identity-ring ring-two"></div>
-                <img class="identity-logo" src="assets/img/datauno-brand.png" alt="DataUno Soluciones Informáticas" loading="lazy">
+                <img class="identity-logo" src="assets/img/datauno-brand.png?v=footer-brand-20260626" alt="DataUno Soluciones Informáticas" loading="lazy">
                 <h2>Diagnóstico +<br>Solución + Evolución</h2>
                 <p>Unimos servicio técnico, desarrollo de software y asesoría digital en una experiencia integral.</p>
                 <div class="hero-service-list">
